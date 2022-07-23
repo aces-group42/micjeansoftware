@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is the backend for micjean software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yevsel"
+  },
+  "keywords": [
+    "MONGO",
+    "EXPRESS",
+    "CORS"
+  ],
+  "author": "Yevoo Justice Selasi",
+  "license": "ISC"
+}
