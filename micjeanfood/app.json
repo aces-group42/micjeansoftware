@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "micjeanfood",
-    "slug": "micjeanfood",
+    "name": "deliveroo",
+    "slug": "deliveroo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
