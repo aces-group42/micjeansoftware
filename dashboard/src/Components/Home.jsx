@@ -6,6 +6,7 @@ const Home = ()=>{
     const [category,setCategory]=useState("")
     const [price,setPrice]=useState(0)
     const [whatYouGet,setWhatYouGet]=useState("")
+    const [loading,setLoading] = useState(false)
 
 
     const submitToDataBase = (event)=>{
@@ -17,7 +18,23 @@ const Home = ()=>{
             category,
             whatYouGet
         }
-        console.log(dataToSend)
+        
+        const sendToDB = async ()=>{
+            try {
+                setLoading(true)
+                const result = await fetch("http://127.0.0.1:4500/upload",{
+                    method:"POST",
+                    headers:{"Content-Type":"application/json"},
+                    body:JSON.stringify(dataToSend)
+                })
+                const response = await result.json()
+                setLoading(false)
+                console.log(response)
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        sendToDB()
     }
 
     return(
@@ -57,7 +74,8 @@ const Home = ()=>{
                         setWhatYouGet(event.target.value)
                     }} required className='bg-gray-100 p-3 rounded-md shadow outline-none' placeholder='Food items that you get' type="text" id="whatYouGet" />
                 </div>
-                <button onClick={submitToDataBase} className='bg-green-500 p-2 my-10 rounded-md text-white'>SUBMIT TO DATABASE</button>
+                {loading ? <button disabled className='bg-gray-500 my-10 rounded-md p-2 text-gray-200'>SENDING.....</button> :<button onClick={submitToDataBase} className='bg-green-500 p-2 my-10 rounded-md text-white'>SUBMIT TO DATABASE</button>}
+                
             </form>
         </main>
     )
