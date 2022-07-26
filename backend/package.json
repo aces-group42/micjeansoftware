@@ -16,5 +16,14 @@
     "CORS"
   ],
   "author": "Yevoo Justice Selasi",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.7",
+    "nodemailer": "^6.7.7"
+  }
 }
