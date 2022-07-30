@@ -22,7 +22,7 @@ const FeaturedRow = ({title,description,featuredCategory}) => {
         <SectionCard
         id={1}
         imgUrl={"https://simply-delicious-food.com/wp-content/uploads/2019/07/Pancake-board-2.jpg"}
-        title={"Yo! Sushi"}
+        title={"Bread with Fried Egg"}
         rating={4.8}
         genre={"Japanese"}
         address={"Kumasi"}
@@ -34,7 +34,7 @@ const FeaturedRow = ({title,description,featuredCategory}) => {
         <SectionCard
         id={1}
         imgUrl={"https://www.eatwell101.com/wp-content/uploads/2018/03/Chicken-Pasta-and-Broccoli-Skillet.jpg"}
-        title={"Yo! Sushi"}
+        title={"Hot Spaghetti"}
         rating={4.8}
         genre={"Japanese"}
         address={"Kumasi"}

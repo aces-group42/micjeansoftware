@@ -2,6 +2,7 @@ import { View, Text,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 const SectionCard = ({
     id,
     imgUrl,
@@ -22,10 +23,8 @@ const SectionCard = ({
             <View style={{padding:5}}>
                 <Text style={{fontWeight:"bold",paddingBottom:4}}>{title}</Text>
                 <View style={{flexDirection:"row",alignItems:"center",paddingBottom:5}}>
-                    <AntDesign name="star" size={20} color="##F5044F" style={{paddingRight:7,opacity:0.4}}/>
-                    <Text style={{color:"#00ccbb"}}>{rating} <Text style={{color:"gray"}}>Offers</Text></Text>
+                    <Text style={{color:"gray"}}>GH₵ 98.00</Text>
                 </View>
-                
             </View>
         </TouchableOpacity>
   )

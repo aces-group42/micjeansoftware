@@ -1,10 +1,9 @@
 import { useLayoutEffect,useState } from "react"
-import { View,Text,Image,TextInput,ScrollView,Button, Modal} from "react-native"
+import { View,Text,Image,ScrollView} from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { Entypo } from '@expo/vector-icons';
+
 import { Ionicons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
+
 import Recommended from "../../Components/Recommended";
 import FeaturedRow from "../../Components/FeaturedRow";
 const Home=({navigation})=>{
@@ -17,18 +16,11 @@ const Home=({navigation})=>{
             // Hide the header
             headerShown:false
         })
-        setTimeout(()=>{
-            // setShowModal(true)
-            setShowModal(false);
-        },2000)
+        
     },[])
     return (
         <SafeAreaView  >
-            <Modal visible={showModal} >
-                <View style={{alignItems:"center",justifyContent:"center",height:"100%",backgroundColor:"#F51962"}}>
-                    <Text style={{color:"white",fontSize:40,textAlign:"center",fontWeight:"bold"}}>MIC JEAN ROYAL</Text>
-                </View>
-            </Modal>
+            
             
             <ScrollView style={{paddingBottom:100}}>
             <View style={{backgroundColor:"white"}}>
@@ -82,8 +74,8 @@ const Home=({navigation})=>{
                 {/* Featured row */}
                 <FeaturedRow
                     id={1}
-                    title="BreakFast"
-                    description="Paid placements from our partners"
+                    title="Breakfast"
+                    description="All happiness depends on a leisurely breakfast."
                     />
 
                 {/* TastyDiscount */}
