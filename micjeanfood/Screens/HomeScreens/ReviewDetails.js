@@ -31,9 +31,28 @@ const ReviewDetails=({navigation,route})=>{
                 <View>
                     <Text style={{fontSize:20,fontWeight:"bold",color:"gray"}}>{route.params.title}</Text>
                 </View>
-                <View>
-                    <Text>{route.params.price}</Text>
+            </View>
+            <View style={{marginVertical:10,marginRight:10}}>
+                <Text style={{textAlign:"right",fontSize:20}}>GH₵ {(route.params.price).toFixed(2)}</Text>
+            </View>
+            <View style={{margin:10}}>
+                <View style={{borderWidth:2,borderColor:"#F5044F",padding:10,borderRadius:10,marginBottom:10}}>
+                    <Text style={{color:"black",fontSize:18,textAlign:"center"}}>COMES WITH</Text>
                 </View>
+                <View>
+                    {route.params.whatYouGet.split(",").map((item,index)=>{
+                            return(
+                                <View style={{padding:8,margin:2,backgroundColor:"white",borderRadius:10}} key={index}>
+                                    <Text style={{fontWeight:"bold"}}>{item}</Text>
+                                </View>
+                            )
+                    })}
+                </View>
+            </View>
+            <View style={{margin:10}}>
+                <TouchableOpacity style={{padding:10,backgroundColor:"#F5044F",borderRadius:10}}>
+                    <Text style={{textAlign:"center",color:"white",fontWeight:"bold",fontSize:20}}>ADD TO BASKET +</Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     )

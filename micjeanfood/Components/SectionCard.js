@@ -1,9 +1,6 @@
 import { View, Text,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { AntDesign } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 const SectionCard = ({
     imgUrl,
     title,
@@ -27,6 +24,7 @@ const SectionCard = ({
                     <Text style={{color:"gray"}}>GH₵ {(price).toFixed(2)}</Text>
                 </View>
             </View>
+            
         </TouchableOpacity>
   )
 }

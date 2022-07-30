@@ -8,7 +8,7 @@ const RecommendedCard = ({imgUrl,title}) => {
 
   return (
     <TouchableOpacity onPress={()=>{
-      navigation.navigate("ReviewDetails",{imgUrl})
+      navigation.navigate("ReviewDetails",{imgUrl,title,price:20})
     }} style={{marginRight:10,position:"relative"}}>
         <Image source={{
             uri:imgUrl

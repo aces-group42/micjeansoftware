@@ -17,14 +17,10 @@ const FeaturedRow = ({title,description,data}) => {
         </View>
         <AntDesign name="arrowright" size={24} color="#F51962" />
       </View>
-      {/* Image Card */}
-      {/* <ScrollView horizontal contentContainerStyle={{
-        paddingRight:15
-      }} showsHorizontalScrollIndicator={false}>
-      </ScrollView> */}
       <FlatList
       horizontal
       data={data}
+      showsHorizontalScrollIndicator={false}
       renderItem={({item})=>{
         return(
           <SectionCard title={item.name} whatYouGet={item.whatYouGet} category={item.category} imgUrl={item.imageLink} price={item.price}/>
