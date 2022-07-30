@@ -2,13 +2,11 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeStackNavigation from '../Screens/HomeScreens/HomeStackNavigation';
-import Profile from '../Screens/HomeScreens/Profile';
+import Search from '../Screens/HomeScreens/Search';
 import Cart from '../Screens/HomeScreens/Cart';
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons'; 
-import { FontAwesome5 } from '@expo/vector-icons'; 
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-<MaterialCommunityIcons name="truck-delivery" size={24} color="black" />
+import { FontAwesome5 } from '@expo/vector-icons';  
+import { Feather } from '@expo/vector-icons'; 
 
 const Tabs = createBottomTabNavigator()
 
@@ -16,7 +14,7 @@ const BottomTabNavigation = () => {
   return (
     <Tabs.Navigator screenOptions={{
         // Color for the active TabBar
-        tabBarActiveTintColor:"#00ccbb",
+        tabBarActiveTintColor:"#F5044F",
         // Color for the inactive Tab bar
         tabBarInactiveTintColor:"gray",
         // Hide it when keyboard is opened
@@ -24,8 +22,8 @@ const BottomTabNavigation = () => {
         // 
         tabBarStyle:{
             position:"absolute",
-            left:20,
-            right:20,
+            left:30,
+            right:30,
             bottom:20,
             borderRadius:20,
             paddingBottom:10,
@@ -40,10 +38,10 @@ const BottomTabNavigation = () => {
             title:"HOME",
             tabBarIcon:({focused,color,size})=><FontAwesome5 name="home" size={20} color={color} />
         }}/>
-        <Tabs.Screen name="Profile" component={Profile} options={{
+        <Tabs.Screen name="Search" component={Search} options={{
             headerShown:false,
-            title:"TRACK DELIVERY",
-            tabBarIcon:({focused,color,size})=><MaterialCommunityIcons name="truck-delivery" size={25} color={color} />
+            title:"Search",
+            tabBarIcon:({focused,color,size})=><Feather name="search" size={24} color={color} />
         }}/>
         <Tabs.Screen name="Cart" component={Cart} options={{
             headerShown:false,

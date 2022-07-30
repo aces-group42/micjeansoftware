@@ -1,9 +1,12 @@
+import { useNavigation } from "@react-navigation/native"
 import { useLayoutEffect } from "react"
 import { View,Text, Image, ScrollView, TouchableOpacity } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-const ReviewDetails=({navigation})=>{
+const ReviewDetails=({navigation,route})=>{
+
 
     useLayoutEffect(()=>{
+        // console.log(route.params)
         navigation.setOptions({
             headerShown:false,
             
@@ -13,9 +16,9 @@ const ReviewDetails=({navigation})=>{
     return(
         <ScrollView>
             <View style={{position:"relative"}}>
-                <Image style={{width:"100%",height:240}}
+                <Image style={{width:"100%",height:300}}
                 source={{
-                    uri:"https://foodiesterminal.com/wp-content/uploads/2020/04/instant-pot-chicken-ramen-stir-fry-4.jpg"
+                    uri:route.params.imgUrl
                 }}
             />
             <TouchableOpacity onPress={()=>{

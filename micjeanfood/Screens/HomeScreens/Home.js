@@ -5,7 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
-import Categories from "../../Components/Categories";
+import Recommended from "../../Components/Recommended";
 import FeaturedRow from "../../Components/FeaturedRow";
 const Home=({navigation})=>{
 
@@ -25,7 +25,7 @@ const Home=({navigation})=>{
     return (
         <SafeAreaView  >
             <Modal visible={showModal} >
-                <View style={{alignItems:"center",justifyContent:"center",height:"100%",backgroundColor:"#00ccbb"}}>
+                <View style={{alignItems:"center",justifyContent:"center",height:"100%",backgroundColor:"#F51962"}}>
                     <Text style={{color:"white",fontSize:40,textAlign:"center",fontWeight:"bold"}}>MIC JEAN ROYAL</Text>
                 </View>
             </Modal>
@@ -33,24 +33,26 @@ const Home=({navigation})=>{
             <ScrollView style={{paddingBottom:100}}>
             <View style={{backgroundColor:"white"}}>
                 {/* Header */}
+                
                 <View style={{
                     padding:10,
                     flexDirection:"row",
                     alignItems:"center",
                     marginHorizontal:4
                 }}>
-                    <Image
-                    source={{
-                        uri:"https://links.papareact.com/wru"
-                    }}
-                    style={{
-                        width:40,
-                        height:40,
-                        backgroundColor:"#ccc",
-                        borderRadius:20,
-                    }}
-                    />
-                    <View style={{marginHorizontal:10,flex:1}}>
+                    <View style={{flex:1}}>
+                        <Image
+                        source={require("../../images/logo.jpeg")}
+                        style={{
+                            width:60,
+                            height:60,
+                            backgroundColor:"#ccc",
+                            borderRadius:10,
+                            paddingHorizontal:40,
+                        }}
+                        />
+                    </View>
+                    {/* <View style={{marginHorizontal:10,flex:1}}>
                         <Text style={{fontWeight:"bold",
                     color:"gray"}}>Deliver Now</Text>
                         <Text
@@ -58,57 +60,44 @@ const Home=({navigation})=>{
                             fontWeight:"bold",
                             fontSize:20
                         }}>Current Location
-                        <Entypo name="chevron-down" size={24} color="#00ccbb" /></Text>
-                    </View>
+                        <Entypo name="chevron-down" size={24} color="#F51962" /></Text>
+                    </View> */}
                     <View>
-                        <Ionicons name="person" size={35} color="#00ccbb" />
+                        <Ionicons name="person" size={35} color="#F51962" />
                     </View>
                 </View>
 
                 {/* Search Box */}
-                <View style={{padding:10,flexDirection:"row",
-                alignItems:"center"}}>
-                    <View style={{flexDirection:"row",flex:1,borderRadius:5,
-                        backgroundColor:"lightgray",padding:10}}>
-                        <Feather name="search" size={24} color="black" />
-                        <TextInput
-                        placeholder="Restaurant and cuisines"
-                        // Change the keyboard type
-                        keyboardType="default"
-                        style={{paddingLeft:5}}/>
-                    </View>
-                    <View style={{padding:10}}>
-                        <SimpleLineIcons name="equalizer" size={20} color="#00ccbb" />
-                    </View>
-                </View>
+                
             </View>
 
             {/* Content */}
+            <View style={{paddingLeft:15,paddingTop:10}}>
+                    <Text style={{fontWeight:"bold"}}>Recommended</Text>
+            </View>
             <ScrollView style={{backgroundColor:"#lightgray"}}  >
                 {/* Categories */}
-                <Categories navigation={navigation}/>
+                <Recommended navigation={navigation}/>
 
                 {/* Featured row */}
                 <FeaturedRow
                     id={1}
-                    title="Featured"
+                    title="BreakFast"
                     description="Paid placements from our partners"
                     />
 
                 {/* TastyDiscount */}
                 <FeaturedRow
                     id={2}
-                    title="Tasty Discounts"
+                    title="LocalDishes"
                     description="Everyone's been enjoying these juicy discount"
                     />
 
-                {/* Offers near you */}
-                <FeaturedRow
-                    id={3}
-                    title="Offers near you"
-                    description="Why not support your local restaurant tonight"
-                    />
             </ScrollView>
+            {/* Elevator */}
+            <View style={{height:70}}>
+
+            </View>
             </ScrollView>
             
         </SafeAreaView>

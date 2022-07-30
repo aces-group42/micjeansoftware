@@ -1,7 +1,7 @@
 import { View, Text,ScrollView,Image,TouchableOpacity } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
-import RestauranCard from './RestauranCard';
+import SectionCard from './SectionCard';
 
 
 
@@ -13,13 +13,25 @@ const FeaturedRow = ({title,description,featuredCategory}) => {
             <Text style={{fontWeight:"bold",fontSize:18}}>{title}</Text>
             <Text style={{color:"gray",fontWeight:"bold"}}>{description}</Text>
         </View>
-        <AntDesign name="arrowright" size={24} color="#00ccbb" />
+        <AntDesign name="arrowright" size={24} color="#F51962" />
       </View>
       {/* Image Card */}
       <ScrollView horizontal contentContainerStyle={{
         paddingRight:15
       }} showsHorizontalScrollIndicator={false}>
-        <RestauranCard
+        <SectionCard
+        id={1}
+        imgUrl={"https://simply-delicious-food.com/wp-content/uploads/2019/07/Pancake-board-2.jpg"}
+        title={"Yo! Sushi"}
+        rating={4.8}
+        genre={"Japanese"}
+        address={"Kumasi"}
+        short_desc={"This is a short description"}
+        dishes={[]}
+        long={0}
+        lat={0}
+        />
+        <SectionCard
         id={1}
         imgUrl={"https://www.eatwell101.com/wp-content/uploads/2018/03/Chicken-Pasta-and-Broccoli-Skillet.jpg"}
         title={"Yo! Sushi"}
@@ -31,7 +43,7 @@ const FeaturedRow = ({title,description,featuredCategory}) => {
         long={0}
         lat={0}
         />
-        <RestauranCard
+        <SectionCard
         id={1}
         imgUrl={"https://www.eatwell101.com/wp-content/uploads/2018/03/Chicken-Pasta-and-Broccoli-Skillet.jpg"}
         title={"Yo! Sushi"}
@@ -43,31 +55,7 @@ const FeaturedRow = ({title,description,featuredCategory}) => {
         long={0}
         lat={0}
         />
-        <RestauranCard
-        id={1}
-        imgUrl={"https://www.eatwell101.com/wp-content/uploads/2018/03/Chicken-Pasta-and-Broccoli-Skillet.jpg"}
-        title={"Yo! Sushi"}
-        rating={4.8}
-        genre={"Japanese"}
-        address={"Kumasi"}
-        short_desc={"This is a short description"}
-        dishes={[]}
-        long={0}
-        lat={0}
-        />
-        <RestauranCard
-        id={1}
-        imgUrl={"https://www.eatwell101.com/wp-content/uploads/2018/03/Chicken-Pasta-and-Broccoli-Skillet.jpg"}
-        title={"Yo! Sushi"}
-        rating={4.8}
-        genre={"Japanese"}
-        address={"Kumasi"}
-        short_desc={"This is a short description"}
-        dishes={[]}
-        long={0}
-        lat={0}
-        />
-        <RestauranCard
+        <SectionCard
         id={1}
         imgUrl={"https://www.eatwell101.com/wp-content/uploads/2018/03/Chicken-Pasta-and-Broccoli-Skillet.jpg"}
         title={"Yo! Sushi"}
