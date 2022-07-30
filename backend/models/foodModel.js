@@ -5,6 +5,10 @@ const foodModel = new mongoose.Schema({
         type:String,
         required:true
     },
+    imagePreview:{
+        type:String,
+        required:true
+    },
     category:{
         type:String,
         required:true

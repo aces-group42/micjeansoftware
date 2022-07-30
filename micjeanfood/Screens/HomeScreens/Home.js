@@ -4,9 +4,15 @@ import { SafeAreaView } from "react-native-safe-area-context"
 
 import { Ionicons } from '@expo/vector-icons';
 
+import data from "../../Components/data.json"
+
 import Recommended from "../../Components/Recommended";
 import FeaturedRow from "../../Components/FeaturedRow";
 const Home=({navigation})=>{
+
+    const breakfast = data.filter(item=>item.category==="breakfast")
+    const lunch = data.filter(item=>item.category==="lunch")
+    const localdishes = data.filter(item=>item.category==="localdishes")
 
     const [showModal,setShowModal] = useState(true)
     // Modify
@@ -20,8 +26,6 @@ const Home=({navigation})=>{
     },[])
     return (
         <SafeAreaView  >
-            
-            
             <ScrollView style={{paddingBottom:100}}>
             <View style={{backgroundColor:"white"}}>
                 {/* Header */}
@@ -44,16 +48,6 @@ const Home=({navigation})=>{
                         }}
                         />
                     </View>
-                    {/* <View style={{marginHorizontal:10,flex:1}}>
-                        <Text style={{fontWeight:"bold",
-                    color:"gray"}}>Deliver Now</Text>
-                        <Text
-                        style={{
-                            fontWeight:"bold",
-                            fontSize:20
-                        }}>Current Location
-                        <Entypo name="chevron-down" size={24} color="#F51962" /></Text>
-                    </View> */}
                     <View>
                         <Ionicons name="person" size={35} color="#F51962" />
                     </View>
@@ -71,19 +65,36 @@ const Home=({navigation})=>{
                 {/* Categories */}
                 <Recommended navigation={navigation}/>
 
-                {/* Featured row */}
+
+                {/* Localdishes */}
+                <FeaturedRow
+                    id={2}
+                    title="Localdishes"
+                    data={localdishes}
+                    description="Everyone's been enjoying these juicy discount"
+                    />
+                {/* Lunch */}
+                <FeaturedRow
+                    id={2}
+                    title="Lunch"
+                    data={lunch.reverse()}
+                    description="Everyone's been enjoying these juicy discount"
+                    />
+                
+                {/* BreakFast*/}
                 <FeaturedRow
                     id={1}
+                    data={breakfast}
                     title="Breakfast"
                     description="All happiness depends on a leisurely breakfast."
                     />
-
-                {/* TastyDiscount */}
+                {/* Pastries */}
                 <FeaturedRow
-                    id={2}
-                    title="LocalDishes"
+                    id={3}
+                    title="Pastries"
                     description="Everyone's been enjoying these juicy discount"
                     />
+                
 
             </ScrollView>
             {/* Elevator */}

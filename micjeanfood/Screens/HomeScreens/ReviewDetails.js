@@ -9,7 +9,6 @@ const ReviewDetails=({navigation,route})=>{
         // console.log(route.params)
         navigation.setOptions({
             headerShown:false,
-            
         })
     })
 
@@ -28,12 +27,12 @@ const ReviewDetails=({navigation,route})=>{
             </TouchableOpacity>
             </View>
             {/* Name */}
-            <View style={{backgroundColor:'white',padding:10}}>
+            <View style={{backgroundColor:'white',padding:10,margin:10,borderRadius:10}}>
                 <View>
-                    <Text style={{fontSize:30,fontWeight:"bold",color:"#333"}}>MICJEAN'S Special Indomie</Text>
+                    <Text style={{fontSize:20,fontWeight:"bold",color:"gray"}}>{route.params.title}</Text>
                 </View>
                 <View>
-                    
+                    <Text>{route.params.price}</Text>
                 </View>
             </View>
         </ScrollView>

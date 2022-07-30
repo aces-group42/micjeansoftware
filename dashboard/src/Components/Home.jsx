@@ -7,6 +7,7 @@ const Home = ()=>{
     const [price,setPrice]=useState(0)
     const [whatYouGet,setWhatYouGet]=useState("")
     const [loading,setLoading] = useState(false)
+    const [imagePreview,setImagePreview]= useState("")
 
 
     const submitToDataBase = (event)=>{
@@ -14,6 +15,7 @@ const Home = ()=>{
         
         const dataToSend={
             name,
+            imagePreview,
             price:Number(price).toFixed(2),
             category,
             whatYouGet
@@ -52,6 +54,13 @@ const Home = ()=>{
                     <input onChange={(event)=>{
                         setName(event.target.value)
                     }} required  className='bg-gray-100 p-3 rounded-md shadow outline-none' placeholder='Food name..' type="text" id="name" />
+                </div>
+                {/* Image Preview */}
+                <div className='flex flex-col space-y-3 mt-5'>
+                    <label className='text-lg text-gray-700' htmlFor="image_link">ImageLink</label>
+                    <input onChange={(event)=>{
+                        setImagePreview(event.target.value)
+                    }} required  className='bg-gray-100 p-3 rounded-md shadow outline-none' placeholder='Image Link' type="text" id="image_link" />
                 </div>
                 {/* Category */}
                 <div className='flex flex-col space-y-3 mt-8'>

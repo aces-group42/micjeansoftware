@@ -2,6 +2,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Home';
 import ReviewDetails from './ReviewDetails';
+
 const Stack = createNativeStackNavigator();
 
 const HomeStackNavigation = ()=>{

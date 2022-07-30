@@ -1,0 +1,130 @@
+[
+  {
+    "key": 1,
+    "name": "FUFU AND GOAT MEAT LIGHT SOUP",
+    "imageLink": "https://images.bolt.eu/store/2022/2022-01-10/f02c37de-ed88-4e59-83dc-8d0f97c5a2f7.jpeg",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Fufu,Goat meat,Tomato light soup"
+  },
+  {
+    "key": 2,
+    "name": "FUFU AND CHICKEN LIGHT SOUP",
+    "imageLink": "https://d2j6dbq0eux0bg.cloudfront.net/images/17230018/1073834532.jpg",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Fufu,Chicken,Tomato light soup"
+  },
+  {
+    "key": 3,
+    "name": "FUFU AND FRESH FISH LIGHT SOUP",
+    "imageLink": "https://besthomediet.com/wp-content/uploads/2021/08/fufu-and-light-soup-pic-01.jpg",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Fufu,Fresh Fish,Tomato light soup"
+  },
+  {
+    "key": 4,
+    "name": "FUFU AND GROUNDNUT SOUP WITH MEAT",
+    "imageLink": "https://lh3.googleusercontent.com/-JtQbQQeohlk/WLvtHEFiSqI/AAAAAAAAHJw/X011CM9d8_A/w1200-h630-p-k-no-nu/%25255BUNSET%25255D.png",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Fufu,Meat,Groundnut soup"
+  },
+  {
+    "key": 5,
+    "name": "OMOTUO AND GROUNDNUT SOUP WITH MEAT",
+    "imageLink": "http://1.bp.blogspot.com/-oeL5JMRexf8/Vg05e2HRydI/AAAAAAAABQ4/QhdGAaBcYNc/s1600/P1060496.JPG",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Rice balls,Meat,Groundnut soup"
+  },
+  {
+    "key": 6,
+    "name": "AKPLE AND ABORBI TADI ",
+    "imageLink": "https://myrecipejoint.com/wp-content/uploads/2021/06/61554502_609075879576817_4357456742284525568_n.webp",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Akple,Fish,Hot sauce"
+  },
+  {
+    "key": 7,
+    "name": "RED RED (PLANTAIN, BEANS, GARI AND EGG)",
+    "imageLink": "https://newsghana.com.gh/wp-content/uploads/2022/06/Gari-and-Beans.jpg",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Beans,Egg,Fried Plantain"
+  },
+  {
+    "key": 8,
+    "name": "BANKU WITH HOT CHILLI AND FRIED FISH",
+    "imageLink": "https://i.pinimg.com/originals/1a/eb/35/1aeb359f76d08420f37d67cb1a200b0d.jpg",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Banku, Fried Fish"
+  },
+  {
+    "key": 9,
+    "name": "BANKU WITH OKRO STEW AND MEAT",
+    "imageLink": "https://images.bolt.eu/store/2022/2022-02-03/c4eba9eb-b109-4bbf-b4cb-75ba2d29e8fb.jpeg",
+    "category": "localdishes",
+    "price": 20,
+    "whatYouGet": "Banku,Okro Soup,Meat"
+  },
+  {
+    "key": 10,
+    "name": "PLAIN RICE WITH FISH, SALAD AND SHITOR",
+    "imageLink": "https://img-global.cpcdn.com/recipes/f1b7792c8ee3ebcd/1200x630cq70/photo.jpg",
+    "category": "lunch",
+    "price": 15,
+    "whatYouGet": "Rice,Fried Chicken,Hot sauce"
+  },
+  {
+    "key": 11,
+    "name": "JOLLOF RICE WITH GRILLED CHICKEN",
+    "imageLink": "https://images.bolt.eu/store/2022/2022-03-24/d44e30f3-0e22-48dd-be78-afd1cccdb978.jpeg",
+    "category": "lunch",
+    "price": 20,
+    "whatYouGet": "Jollof Rice,Grilled Chicken,Vegetable Salad"
+  },
+  {
+    "key": 12,
+    "name": "JOLLOF RICE WITH FRIED CHICKEN",
+    "imageLink": "https://www.preciouscore.com/wp-content/uploads/2021/12/Jollof-Rice-With-Chicken-500x500.jpg",
+    "category": "lunch",
+    "price": 20,
+    "whatYouGet": "Jollof Rice,Fried Chicken,Salad"
+  },
+  {
+    "key": 13,
+    "name": "FRIED RICE WITH FRIED CHICKEN",
+    "imageLink": "https://www.megachicken.com.ng/wp-content/uploads/2019/12/Fried-rice-Vegetage-Salad-and-roasted-Chicken-scaled.jpg",
+    "category": "lunch",
+    "price": 20,
+    "whatYouGet": "Fried Rice,Fried Chicken,Salad,Hot sauce"
+  },
+  {
+    "key": 14,
+    "name": "FRIED RICE WITH GRILLED CHICKEN",
+    "imageLink": "https://d2j6dbq0eux0bg.cloudfront.net/images/17706591/1118448196.jpg",
+    "category": "lunch",
+    "price": 20,
+    "whatYouGet": "Fried Rice,Grilled Chicken,Salad"
+  },
+  {
+    "key": 15,
+    "name": "FRIED RICE WITH FISH",
+    "imageLink": "https://i.pinimg.com/originals/1d/43/fb/1d43fbd374a57145aec79434339ede0c.jpg",
+    "category": "lunch",
+    "price": 20,
+    "whatYouGet": "Fried Rice,Fried Fish,Salad"
+  },
+  {
+    "key": 16,
+    "name": "SANDWICH (BREAD WITH VEGETABLE AND CREAM)",
+    "imageLink": "https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Prosciutto-Egg-Panini_EXPS_CHMZ19_40992_E10_30_7b.jpg",
+    "category": "breakfast",
+    "price": 6,
+    "whatYouGet": "Fried egg,Bread"
+  }
+]

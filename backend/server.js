@@ -15,17 +15,17 @@ app.use(cors({
 
 // Routes
 app.post("/upload",async(req,res)=>{
-    const {name,category,price,whatYouGet} = req.body
+    const {name,imagePreview,category,price,whatYouGet} = req.body
     try{
-        // console.log(price)
         const result = await foodModel.create({
             name,
+            imagePreview,
             category,
             price,
             whatYouGet,
             createdAt: new Date().getTime()
         })
-        console.log(result)
+        res.json(result)
     }catch(error){
         res.json(error.message)
     }
