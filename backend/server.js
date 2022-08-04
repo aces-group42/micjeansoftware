@@ -16,6 +16,7 @@ app.use(cors({
 // Routes
 app.post("/upload",async(req,res)=>{
     const {name,imagePreview,category,price,whatYouGet} = req.body
+
     try{
         const result = await foodModel.create({
             name,
@@ -25,7 +26,7 @@ app.post("/upload",async(req,res)=>{
             whatYouGet,
             createdAt: new Date().getTime()
         })
-        res.json(result)
+        res.status(200).json({message:"Success"})
     }catch(error){
         res.json(error.message)
     }
@@ -36,8 +37,10 @@ app.post("/upload",async(req,res)=>{
 
 // Connecting to DataBase
 const DB = process.env.DB
-mongoose.connect(DB,()=>{
-    console.log("Database is live...")
+mongoose.connect(DB,(err)=>{
+    if(err) console.log("Error Connecting")
+    else {
+        console.log("Database is OK")}
 })
 
 
