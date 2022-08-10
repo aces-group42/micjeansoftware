@@ -27,7 +27,7 @@ const ReviewDetails=({navigation,route})=>{
             </TouchableOpacity>
             </View>
             {/* Name */}
-            <View style={{backgroundColor:'white',padding:10,margin:10,borderRadius:10}}>
+            <View style={{backgroundColor:'white',padding:10,margin:10,borderRadius:10, paddingBottom:1000}}>
                 <View>
                     <Text style={{fontSize:20,fontWeight:"bold",color:"gray"}}>{route.params.title}</Text>
                 </View>

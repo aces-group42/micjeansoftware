@@ -17,9 +17,12 @@ const RecommendedCard = ({imgUrl,title}) => {
             height:100,
             borderRadius:15
         }}/>
-        <Text
-         style={{position:"absolute",
-         color:"white",bottom:5,left:5,backgroundColor:"#F5044F",borderRadius:10,padding:3,fontSize:11}}>{title}</Text>
+        
+        <View
+         style={{position:"absolute"
+         ,bottom:5,left:5,backgroundColor:"#F5044F",borderRadius:10,padding:3}}>
+          <Text style={{color:"white",fontSize:11}}>{title}</Text>
+          </View>
     </TouchableOpacity>
   )
 }

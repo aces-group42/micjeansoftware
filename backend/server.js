@@ -14,6 +14,7 @@ app.use(cors({
 }))
 
 // Routes
+//Post food to the Database
 app.post("/upload",async(req,res)=>{
     const {name,imagePreview,category,price,whatYouGet} = req.body
 
@@ -32,6 +33,25 @@ app.post("/upload",async(req,res)=>{
     }
 })
 
+//Get One food Item
+app.get("/food/get/:id",async(req,res)=>{
+    try{
+        const result = await foodModel.findOne({id:req.params.id});
+        res.status(200).json(result);
+    }catch(error){
+        res.status(404).json({message:"Food not found"})
+    }
+})
+
+//Get Categories
+app.get("/category/:category",async(req,res)=>{
+    try {
+        const result = await foodModel.find({category:req.params.category})
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(404).json({message:"Invalid Category"})
+    }
+})
 
 
 
