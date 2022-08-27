@@ -89,11 +89,11 @@ const Home=({navigation})=>{
                     description="All happiness depends on a leisurely breakfast."
                     />
                 {/* Pastries */}
-                <FeaturedRow
+                {/* <FeaturedRow
                     id={3}
                     title="Pastries"
                     description="Everyone's been enjoying these juicy discount"
-                    />
+                    /> */}
                 
 
             </ScrollView>

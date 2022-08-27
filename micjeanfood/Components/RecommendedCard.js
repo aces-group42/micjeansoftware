@@ -7,22 +7,15 @@ const RecommendedCard = ({imgUrl,title}) => {
   const navigation = useNavigation()
 
   return (
-    <TouchableOpacity onPress={()=>{
-      navigation.navigate("ReviewDetails",{imgUrl,title,price:20})
-    }} style={{marginRight:10,position:"relative"}}>
-        <Image source={{
-            uri:imgUrl
-        }} style={{
-            width:100,
-            height:100,
-            borderRadius:15
-        }}/>
-        
-        <View
-         style={{position:"absolute"
-         ,bottom:5,left:5,backgroundColor:"#F5044F",borderRadius:10,padding:3}}>
-          <Text style={{color:"white",fontSize:11}}>{title}</Text>
-          </View>
+    <TouchableOpacity style={{padding:7,borderRadius:10,width:150,height:100,flexDirection:"row",backgroundColor:"white",marginRight:15}}>
+      <View style={{flex:4,margin:1,borderRadius:10}}>
+        <Image source={{uri:imgUrl}} style={{width:"100%",height:"100%",borderRadius:10}}
+        />
+      </View>
+      <View style={{flex:2,margin:1}}>
+          <Text>{title}</Text>
+      </View>
+  
     </TouchableOpacity>
   )
 }
