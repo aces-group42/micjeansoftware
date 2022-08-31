@@ -10,7 +10,7 @@ import { Feather } from '@expo/vector-icons';
 
 const Tabs = createBottomTabNavigator()
 
-const BottomTabNavigation = () => {
+const BottomTabNavigation = ({basketQuantity,setBasketQuantity}) => {
   return (
     <Tabs.Navigator screenOptions={{
         // Color for the active TabBar
@@ -33,11 +33,11 @@ const BottomTabNavigation = () => {
             // borderWidth:10
         }
     }}>
-        <Tabs.Screen name="HomeTab" component={HomeStackNavigation} options={{
+        <Tabs.Screen name="HomeTab" options={{
             headerShown:false,
             title:"HOME",
             tabBarIcon:({focused,color,size})=><FontAwesome5 name="home" size={20} color={color} />
-        }}/>
+        }} children={() => <HomeStackNavigation setBasketQuantity={setBasketQuantity} />}/>
         <Tabs.Screen name="Search" component={Search} options={{
             headerShown:false,
             title:"Search",
@@ -46,7 +46,7 @@ const BottomTabNavigation = () => {
         <Tabs.Screen name="Cart" component={Cart} options={{
             headerShown:false,
             title:"BASKET",
-            tabBarBadge:39,
+            tabBarBadge:basketQuantity,
             tabBarIcon:({focused,color,size})=><AntDesign name="shoppingcart" size={25} color={color} />
         }}/>
     </Tabs.Navigator>

@@ -5,14 +5,15 @@ import { useLayoutEffect } from "react"
 import { View,Text, Image, ScrollView, TouchableOpacity } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import {addItem} from "../../Actions/index"
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { FontAwesome } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons';
 
-const ReviewDetails=({route})=>{
+const ReviewDetails=({route,setBasketQuantity})=>{
 
     const navigation = useNavigation()
     const dispatch = useDispatch()
+    const {id} = route.params
 
     useLayoutEffect(()=>{
         // console.log(route.params)
@@ -25,12 +26,18 @@ const ReviewDetails=({route})=>{
 
     //Fetch from DB
     useEffect(()=>{
-        const getData = async()=>{
-            const result = await fetch(`https://micjeanapi.herokuapp.com/food/get/${route.params.id}`)
-            const dataFromDB = await result.json()
-            setData(dataFromDB)
+        const getData = async(id)=>{
+            try{
+                const result = await fetch(`https://micjeanapi.herokuapp.com/food/get/${id}`)
+                const dataFromDB = await result.json()
+                setData(dataFromDB)
+            }
+            catch(error){
+                
+                console.log(error.message)
+            }
         }
-        getData()
+        getData(id)
     },[])
 
     return(
@@ -43,10 +50,10 @@ const ReviewDetails=({route})=>{
                 />
                 <TouchableOpacity onPress={()=>{
                     navigation.goBack()
-                }} style={{padding:10,borderRadius:10,position:"absolute",top:40,left:10,backgroundColor:"white"}}>
+                }} style={{padding:10,borderRadius:10,position:"absolute",top:50,left:10,backgroundColor:"white"}}>
                     <FontAwesome name="arrow-left" size={20} color="#F51962" />
                 </TouchableOpacity>
-                <TouchableOpacity style={{position:"absolute",top:40,right:10,backgroundColor:"white",padding:10,borderRadius:10}}>
+                <TouchableOpacity style={{position:"absolute",top:50,right:10,backgroundColor:"white",padding:10,borderRadius:10}}>
                     <AntDesign name="hearto" size={20} color="#F51962" />
                 </TouchableOpacity>
             </View>
@@ -60,7 +67,11 @@ const ReviewDetails=({route})=>{
                         <View style={{flex:1}}>
                             <Text>GH₵ {Number(data.price).toFixed(2)}</Text>
                         </View>
-                        <TouchableOpacity onPress={()=>dispatch(addItem(data))} style={{backgroundColor:"#F51962",padding:10,borderRadius:10}}>
+                        <TouchableOpacity onPress={()=>{
+
+                            setBasketQuantity(old=>old+1)
+                            dispatch(addItem(data))
+                            }} style={{backgroundColor:"#F51962",padding:10,borderRadius:10}}>
                             <Text style={{color:"white",fontWeight:"bold"}}>ADD TO BASKET +</Text>
                         </TouchableOpacity>
                     </View>

@@ -54,6 +54,19 @@ app.get("/category/:category",async(req,res)=>{
     }
 })
 
+app.post("/search",async(req,res)=>{
+    try {
+        // console.log(req.body.data)
+        let payload = req.body.data.trim()
+        // Use regex to fetch
+        console.log(payload);
+        let searchResult = await foodModel.find({name:{$regex:new RegExp("^"+payload+".*","i")}}).exec()
+        res.status(200).json(searchResult)
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+})
 
 
 // Connecting to DataBase

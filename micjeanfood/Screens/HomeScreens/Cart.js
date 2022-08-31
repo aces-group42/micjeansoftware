@@ -1,7 +1,8 @@
-import { View, Text,Image } from 'react-native'
+import { View, Text,Image,ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context"
 import allReducers from '../../Reducers'
+import { useNavigation } from '@react-navigation/native';
 import {useSelector} from "react-redux"
 const Cart = () => {
 
@@ -16,6 +17,8 @@ const Cart = () => {
 
   return (
     <SafeAreaView>
+      <ScrollView>
+
       {
         cartItem.map((item,index)=>{
           return(
@@ -30,6 +33,7 @@ const Cart = () => {
       <View>
         <Text>Place Order</Text>
       </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

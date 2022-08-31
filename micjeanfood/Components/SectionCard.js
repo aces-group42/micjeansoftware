@@ -11,7 +11,10 @@ const SectionCard = ({
     const navigation = useNavigation()
 
   return (
-    <TouchableOpacity onPress={()=>navigation.navigate("ReviewDetails",{id})} style={{position:"relative",width:200,marginRight:20,borderRadius:10,overflow:"hidden"}}>
+    <TouchableOpacity onPress={()=>{
+        // console.log(id)
+        navigation.navigate("ReviewDetails",{id:id})}
+        } style={{position:"relative",width:200,marginRight:20,borderRadius:10,overflow:"hidden"}}>
         <Image
         source={{uri:imgUrl}} style={{width:200,height:240}} resizeMode="cover"
         />

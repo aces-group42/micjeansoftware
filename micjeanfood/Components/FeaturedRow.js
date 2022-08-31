@@ -3,6 +3,7 @@ import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import SectionCard from './SectionCard';
 import { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 
@@ -10,14 +11,19 @@ import { useState } from 'react';
 const FeaturedRow = ({title,description}) => {
 
   const [data,setData]=useState([]);
+  const navigation = useNavigation();
 
   useEffect(()=>{
     const getData = async()=>{
-      const result = await fetch(`https://micjeanapi.herokuapp.com/category/${(title).toLowerCase()}`,{
-        method:"GET"
-      })
-      const dataFromDB = await result.json()
-      setData(dataFromDB)
+      try{
+        const result = await fetch(`https://micjeanapi.herokuapp.com/category/${(title).toLowerCase()}`,{
+          method:"GET"
+        })
+        const dataFromDB = await result.json()
+        setData(dataFromDB)
+      }catch(error){
+        console.log("Server Keeping too long")
+      }
     }
     getData()
   },[])
@@ -30,9 +36,13 @@ const FeaturedRow = ({title,description}) => {
             <Text style={{fontWeight:"bold",fontSize:18}}>{title}</Text>
             <Text style={{color:"gray",fontWeight:"bold"}}>{description}</Text>
         </View>
-        <View style={{padding:5,borderRadius:50,backgroundColor:"#ccc"}}>
-          <AntDesign name="arrowright" size={24} color="#F51962" />
-        </View>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate("Categories",{category:title.toLowerCase()})
+        }}>
+          <View style={{padding:5,borderRadius:50,backgroundColor:"#fafafa"}}>
+            <AntDesign name="arrowright" size={24} color="#F51962" />
+          </View>
+        </TouchableOpacity>
       </View>
       <FlatList
       horizontal
