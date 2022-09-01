@@ -9,11 +9,15 @@ import {useDispatch, useSelector} from "react-redux"
 import { FontAwesome } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons';
 
+
 const ReviewDetails=({route,setBasketQuantity})=>{
 
     const navigation = useNavigation()
     const dispatch = useDispatch()
     const {id} = route.params
+
+    const [enableAdd,setEnableAdd]=useState(false);
+    const [whatYouGet,setWhatYouGet]=useState([])
 
     useLayoutEffect(()=>{
         // console.log(route.params)
@@ -30,6 +34,8 @@ const ReviewDetails=({route,setBasketQuantity})=>{
             try{
                 const result = await fetch(`https://micjeanapi.herokuapp.com/food/get/${id}`)
                 const dataFromDB = await result.json()
+                setWhatYouGet(dataFromDB.whatYouGet.split(','))
+                setEnableAdd(true)
                 setData(dataFromDB)
             }
             catch(error){
@@ -54,7 +60,7 @@ const ReviewDetails=({route,setBasketQuantity})=>{
                     <FontAwesome name="arrow-left" size={20} color="#F51962" />
                 </TouchableOpacity>
                 <TouchableOpacity style={{position:"absolute",top:50,right:10,backgroundColor:"white",padding:10,borderRadius:10}}>
-                    <AntDesign name="hearto" size={20} color="#F51962" />
+                    <AntDesign  name="hearto" size={20} color="#F51962" />
                 </TouchableOpacity>
             </View>
 
@@ -65,24 +71,27 @@ const ReviewDetails=({route,setBasketQuantity})=>{
                     </View>
                     <View style={{backgroundColor:"white",flexDirection:"row",alignItems:"center",padding:20,margin:10,borderRadius:10}}>
                         <View style={{flex:1}}>
-                            <Text>GH₵ {Number(data.price).toFixed(2)}</Text>
+                            <Text style={{fontSize:16}}>GH₵ {Number(data.price).toFixed(2)}</Text>
                         </View>
-                        <TouchableOpacity onPress={()=>{
-
+                        <TouchableOpacity disabled={enableAdd?false:true} onPress={()=>{
                             setBasketQuantity(old=>old+1)
                             dispatch(addItem(data))
                             }} style={{backgroundColor:"#F51962",padding:10,borderRadius:10}}>
                             <Text style={{color:"white",fontWeight:"bold"}}>ADD TO BASKET +</Text>
                         </TouchableOpacity>
                     </View>
-                    {/* <View>
-                        <Text style={{textAlign:"center",}}>COMES WITH</Text>
+                    <View style={{margin:10}}>
                         <View>
-                            {data.whatYouGet.split(",").map(item=>{
-                                return(<Text>{item}</Text>)
-                            })}
+                            <Text style={{textAlign:"center",fontWeight:"bold"}}>COMES WITH</Text>
                         </View>
-                    </View> */}
+                        {whatYouGet.map((text,index)=>{
+                            return(<View key={index}>
+                                <Text style={{fontSize:20}}>
+                                    · {text}
+                                </Text>
+                            </View>)
+                        })}
+                    </View>
                 </View>
             </View>
             

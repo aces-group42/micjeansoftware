@@ -7,6 +7,7 @@ import Cart from '../Screens/HomeScreens/Cart';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';  
 import { Feather } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
 
 const Tabs = createBottomTabNavigator()
 
@@ -47,7 +48,7 @@ const BottomTabNavigation = ({basketQuantity,setBasketQuantity}) => {
             headerShown:false,
             title:"BASKET",
             tabBarBadge:basketQuantity,
-            tabBarIcon:({focused,color,size})=><AntDesign name="shoppingcart" size={25} color={color} />
+            tabBarIcon:({focused,color,size})=><FontAwesome name="shopping-basket" size={24} color={color} />
         }}/>
     </Tabs.Navigator>
   )
