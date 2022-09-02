@@ -37,18 +37,18 @@ const BottomTabNavigation = ({basketQuantity,setBasketQuantity}) => {
         <Tabs.Screen name="HomeTab" options={{
             headerShown:false,
             title:"HOME",
-            tabBarIcon:({focused,color,size})=><FontAwesome5 name="home" size={20} color={color} />
+            tabBarIcon:({focused,color,size})=><FontAwesome5 name="home" size={21} color={color} />
         }} children={() => <HomeStackNavigation setBasketQuantity={setBasketQuantity} />}/>
         <Tabs.Screen name="Search" component={Search} options={{
             headerShown:false,
-            title:"Search",
-            tabBarIcon:({focused,color,size})=><Feather name="search" size={24} color={color} />
+            title:"SEARCH",
+            tabBarIcon:({focused,color,size})=><Feather name="search" size={27} color={color} />
         }}/>
         <Tabs.Screen name="Cart" component={Cart} options={{
             headerShown:false,
             title:"BASKET",
             tabBarBadge:basketQuantity,
-            tabBarIcon:({focused,color,size})=><FontAwesome name="shopping-basket" size={24} color={color} />
+            tabBarIcon:({focused,color,size})=><FontAwesome name="shopping-basket" size={21} color={color} />
         }}/>
     </Tabs.Navigator>
   )

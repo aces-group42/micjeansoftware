@@ -30,11 +30,11 @@ const FeaturedRow = ({title,description}) => {
 
   return (
   
-    <View style={{padding:10,marginTop:20,marginLeft:0}}>
+    <View style={{padding:0,marginTop:20,marginLeft:0}}>
       <View style={{flexDirection:"row",alignItems:"center",marginBottom:10}}>
-        <View style={{flex:1}}>
+        <View style={{flex:1,padding:10}}>
             <Text style={{fontWeight:"bold",fontSize:18}}>{title}</Text>
-            <Text style={{color:"gray",fontWeight:"bold"}}>{description}</Text>
+            <Text style={{color:"gray"}}>{description}</Text>
         </View>
         <TouchableOpacity onPress={()=>{
           navigation.navigate("Categories",{category:title.toLowerCase()})

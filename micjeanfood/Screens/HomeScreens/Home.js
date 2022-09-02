@@ -27,7 +27,7 @@ const Home=({navigation})=>{
     return (
         <SafeAreaView  >
             <ScrollView style={{paddingBottom:100}}>
-            <View style={{backgroundColor:"white"}}>
+            <View >
                 {/* Header */}
                 
                 <View style={{
@@ -53,8 +53,6 @@ const Home=({navigation})=>{
                     </View>
                 </View>
 
-                {/* Search Box */}
-                
             </View>
 
             {/* Content */}
@@ -88,14 +86,6 @@ const Home=({navigation})=>{
                     title="Breakfast"
                     description="All happiness depends on a leisurely breakfast."
                     />
-                {/* Pastries */}
-                {/* <FeaturedRow
-                    id={3}
-                    title="Pastries"
-                    description="Everyone's been enjoying these juicy discount"
-                    /> */}
-                
-
             </ScrollView>
             {/* Elevator */}
             <View style={{height:70}}>
