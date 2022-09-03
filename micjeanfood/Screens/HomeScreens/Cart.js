@@ -1,5 +1,5 @@
 import { View, Text,Image,ScrollView,TouchableOpacity } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context"
 import allReducers from '../../Reducers'
 import { useNavigation } from '@react-navigation/native';
@@ -9,11 +9,13 @@ import { FontAwesome } from '@expo/vector-icons';
 import { increaseItem,decreaseItem,deleteItem } from '../../Actions';
 import Empty from "../../assets/Empty.png"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const Cart = () => {
   
 
   const cartItem = useSelector(state=>state.cartReducer)
+  const [order,setOrder]=useState([]);
   const navigation = useNavigation()
   const dispatch = useDispatch()
 
@@ -28,19 +30,69 @@ const Cart = () => {
     const localData=async()=>{
       try {
         const result = await AsyncStorage.getItem("items")
-        if (result){
-          alert(result)
-        }else{
-          alert("NO")
-        }
+        const data = result.split("·")
+        setOrder(data)
       } catch (error) {
         console.log(error.message)
       } 
     }
-    // localData()
+    localData()
   },[])
 
-  if(!cartItem.length){
+  if(order.length!=0){
+    return(
+      <SafeAreaView>
+        <ScrollView>
+        <View>
+            <TouchableOpacity style={{backgroundColor:"red",padding:10,borderRadius:10,margin:10}}>
+              <Text onPress={()=>{
+                const deleteLocal = async()=>{
+                  try{ 
+                      await AsyncStorage.removeItem("items")
+                      setOrder([])
+                      alert("ORDER CANCELLED")
+                  }catch(error){
+                    console.log(error)
+                  }
+                }
+                deleteLocal()
+              }} style={{color:"white",textAlign:"center",fontSize:18}}>
+                CANCEL ORDER
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{paddingBottom:80}}>
+            {order.map((item,index)=>{
+              return(
+                <View style={{margin:10,borderRadius:10}} key={index}>
+                  <Image style={{width:"100%",height:200,borderRadius:10}} source={{
+                    uri:item.imagePreview
+                  }}/>
+                  <View style={{fontSize:18,flexDirection:"row"}}>
+                    <Text style={{flex:1}}>
+                    {item.name} 
+                    </Text>
+                    <Text style={{fontWeight:"bold"}}>
+                      x {item.amount}
+                    </Text>
+                  </View>
+                  
+                </View>
+              )
+            })}
+          </View>
+          <View style={{marginTop:10,marginHorizontal:50,paddingBottom:100}}>
+                    <TouchableOpacity style={{backgroundColor:"green",padding:10,flexDirection:"row",alignItems:"center",justifyContent:"center",borderRadius:10}}>
+                      <Text style={{color:"white",fontSize:18}}> PAYMENT OPTIONS </Text>
+                      <FontAwesome5 name="money-check-alt" size={24} color="black" />
+                    </TouchableOpacity>
+                  </View>
+        </ScrollView>
+      </SafeAreaView>
+    )
+  }
+
+  else if(!cartItem.length){
     return(
       <View style={{backgroundColor:"white"}}>
         <Image resizeMode='contain' style={{width:"100%",height:"100%"}} 
@@ -59,13 +111,12 @@ const Cart = () => {
           <TouchableOpacity onPress={()=>{
             const saveData=async()=>{
               try{
-                const IDS = cartItem.map(item=>item._id)
                 await AsyncStorage.clear()
                 let obs = ""
+                setOrder(cartItem)
                 cartItem.forEach(item=>{
-                  obs+=JSON.stringify(item)+","
+                  obs+=JSON.stringify(item)+"·"
                 })
-                console.log("OBS",obs)
                 await AsyncStorage.setItem("items",obs)
                 alert("Added")
               }catch(error){
@@ -75,23 +126,6 @@ const Cart = () => {
             saveData()
           }} style={{backgroundColor:"#0275d8",padding:15,borderRadius:10}}>
             <Text style={{textAlign:"center",color:"white",fontSize:20,fontWeight:"bold"}}>PLACE ORDER</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=>{
-            const localData=async()=>{
-              try {
-                const result = await AsyncStorage.getItem("items")
-                const data = result.split(",")
-                data.forEach(item=>{
-                  console.log(JSON.parse(item))
-                  // console.log(Object.create(item))
-                })
-              } catch (error) {
-                console.log(error.message)
-              } 
-            }
-            localData()
-          }} style={{padding:20,backgroundColor:"000"}}>
-            <Text>Display</Text>
           </TouchableOpacity>
         </View>
         {  
